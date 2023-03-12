@@ -1,0 +1,52 @@
+" https://github.com/JetBrains/ideavim/blob/master/src/main/java/com/maddyhome/idea/vim/package-info.java
+source ~/.vimrc
+
+" Plugin#start   https://github.com/JetBrains/ideavim/wiki/Emulated-plugins
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-multiple-cursors'
+Plug 'argtextobj.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+" Plugin#end
+
+" search settings
+set incsearch
+set ignorecase
+set smartcase
+
+" tab settings
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+
+let mapleader=","
+set notimeout
+set noerrorbells
+set visualbell
+set scrolloff=5
+" https://github.com/JetBrains/ideavim/blob/master/doc/ideajoin-examples.md
+set ideajoin
+nmap cc :q!<CR>
+nmap ge <action>(GotoNextError)
+nmap gm <action>(MethodUp)
+nmap zz <action>(ToggleZenMode)
+nmap <leader>p vep
+nmap <leader>s <Plug>(easymotion-s)
+nmap <leader>fl <action>(SelectInProjectView)
+nmap <leader>ll <action>(FileStructurePopup)
+nmap <leader>rr <action>(RenameElement)
+nmap <leader>rc <action>(CompileFile)
+nmap <leader>ff <action>(FindInPath)
+nmap <c-j> <action>(Back)
+nmap <c-k> <action>(Forward)
+nmap zC <action>(CollapseAllRegions)
+nmap zO <action>(ExpandAllRegions)
+nmap <F5> <action>(StepOver)
+nmap <F6> <action>(StepInto)
+nmap <F7> <action>(ForceRunToCursor)
+nmap <F8> <action>(EvaluateExpression)
+nmap <leader>rf <action>(RearrangeCode)

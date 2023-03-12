@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+
+	<!--
+	https://www.aldoraweb.com/using-maven-private-or-multiple-repositories/
+	https://developer.aliyun.com/mvn/guide
+	-->
+
+	<mirrors>
+		<mirror>
+			<id>maven-default-http-blocker</id>
+			<mirrorOf>dummy</mirrorOf>
+			<url>http://0.0.0.0/</url>
+		</mirror>
+	</mirrors>
+
+	<profiles>
+		<profile>
+			<id>aliyun-nexus</id>
+			<repositories>
+				<repository>
+					<id>public</id>
+					<url>https://maven.aliyun.com/repository/public</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>central</id>
+					<url>https://maven.aliyun.com/repository/central</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>spring</id>
+					<url>https://maven.aliyun.com/repository/spring</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>aliyun-plugin</id>
+					<url>https://maven.aliyun.com/repository/public</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+
+		<profile>
+			<id>cbx-nexus</id>
+			<repositories>
+				<repository>
+					<id>public</id>
+					<url>http://192.168.2.55:8088/nexus/content/repositories/public</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>aliyun-nexus</activeProfile>
+		<activeProfile>cbx-nexus</activeProfile>
+	</activeProfiles>
+</settings>

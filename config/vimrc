@@ -1,0 +1,102 @@
+" Vim Plugin Manager
+" https://github.com/junegunn/vim-plug
+"
+call plug#begin()
+" start page
+Plug 'mhinz/vim-startify'
+
+" comment
+Plug 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims = 1            " 1 空格
+
+" 文件跳转
+" Plug 'kien/ctrlp.vim'
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+
+" Go Plugin
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='dark'
+
+" 光标跳转
+Plug 'easymotion/vim-easymotion'
+nmap <leader>s <Plug>(easymotion-s)
+let g:EasyMotion_smartcase = 1
+
+" 目录
+Plug 'scrooloose/nerdtree'
+nnoremap <C-t> :NERDTreeToggle<CR>
+noremap <C-f> :NERDTreeFind<CR>
+
+" 文件搜索
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+nnoremap <C-p> :Files <CR>
+
+" Theme
+Plug 'sickill/vim-monokai'
+Plug 'christophermca/meta5'
+Plug 'lifepillar/vim-gruvbox8'
+
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+let g:mkdp_theme = 'light'
+let g:mkdp_auto_start = 1
+let g:mkdp_preview_options = {
+			\ 'mkit': {},
+			\ 'katex': {},
+			\ 'uml': {},
+			\ 'maid': {},
+			\ 'disable_sync_scroll': 0,
+			\ 'sync_scroll_type': 'middle',
+			\ 'hide_yaml_meta': 1,
+			\ 'sequence_diagrams': {},
+			\ 'flowchart_diagrams': {},
+			\ 'content_editable': v:false,
+			\ 'disable_filename': 0,
+			\ 'toc': {}
+			\ }
+
+let g:mkdp_browser = 'safari'
+Plug 'mzlogin/vim-markdown-toc'
+
+Plug 'tpope/vim-surround'
+
+" 自动缩进
+Plug 'tpope/vim-sleuth'
+Plug 'raimondi/delimitmate'
+call plug#end()
+
+let mapleader=","
+set tabstop=4
+set expandtab
+" set nu
+set cul
+" set relativenumber
+syntax on
+set scrolloff=5
+filetype plugin on
+" fix 退格无效
+set nocompatible
+set backspace=indent,eol,start
+
+
+" Keymap
+nnoremap dj j
+nnoremap dh h
+nnoremap dk k
+nnoremap dl l
+" nnoremap J j
+nnoremap K k
+inoremap jk <Esc>
+inoremap JK <Esc>
+" inoremap <c-h> <Left>
+inoremap <c-l> <Right>
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+" colorscheme meta5
+

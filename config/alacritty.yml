@@ -1,0 +1,96 @@
+################################################
+# Font Install                                 #
+# > brew tap homebrew/cask-fonts               #
+# > brew install font-jetbrains-mono           #
+# > brew install font-jetbrains-mono-nerd-font #
+################################################
+env:
+  TERM: xterm-256color
+font:
+  size: 16.5
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+
+###############################################
+# Window                                      #
+###############################################
+window:
+  opacity: 1
+  padding:
+    x: 5
+    y: 0
+  dimensions:
+    columns: 110
+    lines: 28
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+shell:
+  program: /opt/homebrew/bin/fish
+  args:
+    - -l
+    - -c
+    - "tmux new-session -A -D -s main"
+
+###############################################
+# Key bingings                                #
+# \x01 -> ctrl-a                              #
+###############################################
+key_bindings:
+  - { key: T, mods: Command, chars: "\x01c" }
+  # new tab
+  - { key: W, mods: Command, chars: "\x01x" }
+  # close pane
+  - { key: Key1, mods: Command, chars: "\x011" }
+  # go to tab 1..5
+  - { key: Key2, mods: Command, chars: "\x012" }
+  - { key: Key3, mods: Command, chars: "\x013" }
+  - { key: Key4, mods: Command, chars: "\x014" }
+  - { key: Key5, mods: Command, chars: "\x015" }
+  - { key: Key6, mods: Command, chars: "\x016" }
+
+###############################################
+# Theme                                       #
+# > npm install -g alacritty-themes           #
+# > alacritty-theme                           #
+###############################################
+colors:
+  # Default colors
+  primary:
+    background: "#2D2A2E"
+    foreground: "#FCFCFA"
+
+  # Normal colors
+  normal:
+    black: "#403E41"
+    red: "#FF6188"
+    green: "#A9DC76"
+    yellow: "#FFD866"
+    blue: "#FC9867"
+    magenta: "#AB9DF2"
+    cyan: "#78DCE8"
+    white: "#FCFCFA"
+
+  # Bright colors
+  bright:
+    black: "#727072"
+    red: "#FF6188"
+    green: "#A9DC76"
+    yellow: "#FFD866"
+    blue: "#FC9867"
+    magenta: "#AB9DF2"
+    cyan: "#78DCE8"
+    white: "#FCFCFA"
+theme: Monokai-Pro
